@@ -89,3 +89,30 @@ exports.findById = async(req, res) => {
         })
     }
 }
+
+exports.update = async(req, res) => {
+
+    const userReq = req.params.userId;
+
+    try {
+
+        const user = await User.findOneAndUpdate({
+            userId: userReq
+        }, {
+            userName: req.body.userName,
+            userStatus: req.body.userStatus,
+            userType: req.body.userType
+        }).exec()
+
+        res.status(200).send({
+            message: `User record has been updated successfully`
+        });
+
+    }catch(err) {
+
+        console.err("Error wwhile updating the record", err.message);
+        res.status(500).send({
+            message: "Internal server error"
+        })
+    };
+}
