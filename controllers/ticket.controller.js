@@ -55,26 +55,52 @@ exports.createTicket = async(req, res) => {
 
 /**
  * 
- * Only the user who created the ticket should be allowed to update the ticket
+ * Only the user who has created the ticket is allowed to update the ticket. 
+    Engineer who is the assignee of the ticket is allowed to update the ticket.
+    Admin is also allowed to update the ticket. 
+
+    In our case, engineer is updating the ticket, so we will check the assignee of the ticker and compare it with the 
+    userid and if both are same, the Engineer will be allowed to update the ticket. 
+
+    We will fetch all the information from the request and update the ticket in the db using save() function. 
  */
 exports.updateTicket = async(req, res) => {
 
-    const ticket = await Ticket.findOne({_id: req.params.id});
-
-    if(ticket.reporter == req.userId) {
+    let ticket;
+    try {
+        ticket = await Ticket.findOne({_id: req.params.id});
+        if(!ticket) {
+            res.status(400).send({
+                message: "Ticket Id is incorrect"
+            })
+            return;
+        } 
+    }catch(err) {
+        console.log("Sommer error happened while updating the ticker", err.message);
+        res.status(500).send({
+            message: "Internal server error happened"
+        })
+        return;
+    }
+    const savedUser = await User.findOne({
+        userId: req.userId
+    });
+    console.log(ticket)
+    if(ticket.reporter == req.userId || ticket.assignee == req.userId || savedUser.userType == constants.userTypes.admin){
+        //Allowed to update
 
         ticket.title = req.body.title  != undefined ? req.body.title: ticket.title,
         ticket.description = req.body.description  != undefined ? req.body.description: ticket.description,
-        ticket.priority = req.body.priority  != undefined ? req.body.priority: ticket.priority,
+        ticket.ticketPriority = req.body.ticketPriority  != undefined ? req.body.ticketPriority: ticket.ticketPriority,
         ticket.status = req.body.status  != undefined ? req.body.status: ticket.status
-
+        ticket.assignee = req.body.assignee != undefined ? req.body.assignee : ticket.assignee
         var updatedTicket = await ticket.save();
 
         res.status(200).send(objectConvertor.ticketResponse(updatedTicket));
     }else{
         console.log('Ticket was being updated by someone who has not created the ticket');
         res.status(400).send({
-            message: "Ticket can be updated only by the customer who created it"
+            message: "Ticket can be updated only by the customer who created it or engineer or admin who has been assigned it"
         })
     }
 }
