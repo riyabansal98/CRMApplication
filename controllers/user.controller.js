@@ -18,7 +18,7 @@ exports.findAll = async(req, res) => {
                 userName: userNameReq
             });
         }catch(err){
-            console.err("error while fetching the user for username: ", userNameReq);
+            console.log("error while fetching the user for username: ", userNameReq);
             res.status(500).send({
                 message: "Some internal error occured"
             })
@@ -32,10 +32,11 @@ exports.findAll = async(req, res) => {
                 userStatus: userStatusReq
             });
         }catch(err) {
-            console.err(`error while fetching the user and userType [${userTypeReq}] and userStatus [${userStatusReq}]`)
+            console.log(`error while fetching the user and userType [${userTypeReq}] and userStatus [${userStatusReq}]`)
             res.status(500).send({
                 message: "Some internal error occured"
             })
+            return;
         }
     }else if(userTypeReq) {
         try {
@@ -44,10 +45,11 @@ exports.findAll = async(req, res) => {
                 userType: userTypeReq
             });
         }catch(err) {
-            console.err(`error while fetching the user  userType [${userTypeReq}]`)
+            console.log(`error while fetching the user  userType [${userTypeReq}]`)
             res.status(500).send({
                 message: "Some internal error occured"
             })
+            return;
         }
     }else if(userStatusReq) {
         try {
@@ -55,19 +57,21 @@ exports.findAll = async(req, res) => {
                 userStatus: userStatusReq
             });
         }catch(err) {
-            console.err(`error while fetching the user userStatus [${userStatusReq}]`)
+            console.log(`error while fetching the user userStatus [${userStatusReq}]`)
             res.status(500).send({
                 message: "Some internal error occured"
             })
+            return;
         }
     }else{
         try {
             users = await User.find();
         }catch(err) {
-            console.err(`error while fetching the users`)
+            console.log(`error while fetching the users`)
             res.status(500).send({
                 message: "Some internal error occured"
             })
+            return;
         }
     }
 
@@ -110,7 +114,7 @@ exports.update = async(req, res) => {
 
     }catch(err) {
 
-        console.err("Error wwhile updating the record", err.message);
+        console.log("Error wwhile updating the record", err.message);
         res.status(500).send({
             message: "Internal server error"
         })
