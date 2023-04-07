@@ -3,8 +3,8 @@ var Client = require('node-rest-client').Client;
 
 var client = new Client();
 
-
-module.exports = (ticketId, subject, content, emailIds, requestor) => {
+exports.client = client;
+exports.sendEmail = (ticketId, subject, content, emailIds, requestor) => {
 
     var reqBody = {
         subject: subject,

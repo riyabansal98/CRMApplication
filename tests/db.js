@@ -12,7 +12,7 @@ module.exports.connect = async() => {
             useUnifiedTopology: true,
             maxPoolSize: 10
         };
-        mongoose.connect(uri, mongooseOpts);
+        mongoose.connect(url, mongooseOpts);
     }
 }
 
@@ -26,7 +26,7 @@ module.exports.closeDatabase = async () => {
 }
 
 //clear the db and remove all the data
-module.exports.clearDatabase() = async () => {
+module.exports.clearDatabase = async () => {
     const collections = mongoose.connection.collections;
     for(const key in collections) {
 
