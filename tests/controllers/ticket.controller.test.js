@@ -46,7 +46,6 @@ describe('createTicket', () => {
 
     it('should  pass', async() => {
         const Userspy = jest.spyOn(User, 'findOne').mockReturnValue(Promise.resolve(userTestPayload));
-        console.log("HELLOOOOOOO" + client);
         const clientSpy = jest.spyOn(client,'post').mockImplementation((url, args, cb) => cb("Test", null));
         req = mockRequest(); 
         res = mockResponse(); 
@@ -66,5 +65,23 @@ describe('createTicket', () => {
                 title: "Test"
             })
         )
+    })
+
+    it('should fail', async() => {
+        const Userspy = jest.spyOn(User, 'findOne').mockReturnValue(Promise.resolve(userTestPayload));
+        const ticketSpy = jest.spyOn(Ticket, 'create').mockImplementation(cb => cb(new Error("This is an error."), null));
+
+        req = mockRequest(); 
+        res = mockResponse(); 
+        req.body = ticketTestPayload
+        
+        await createTicket(req, res);
+        expect(Userspy).toHaveBeenCalled();
+        expect(ticketSpy).toHaveBeenCalled();
+        expect(res.status).toHaveBeenCalledWith(500);
+        expect(res.send).toHaveBeenCalledWith({
+            message: "Some internal server error"
+        })
+
     })
 })
