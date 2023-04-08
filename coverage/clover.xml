@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1680969581442" clover="3.2.0">
-  <project timestamp="1680969581442" name="All files">
-    <metrics statements="315" coveredstatements="190" conditionals="91" coveredconditionals="19" methods="38" coveredmethods="26" elements="444" coveredelements="235" complexity="0" loc="315" ncloc="315" packages="8" files="21" classes="21"/>
+<coverage generated="1680971089384" clover="3.2.0">
+  <project timestamp="1680971089384" name="All files">
+    <metrics statements="315" coveredstatements="197" conditionals="91" coveredconditionals="23" methods="38" coveredmethods="27" elements="444" coveredelements="247" complexity="0" loc="315" ncloc="315" packages="8" files="21" classes="21"/>
     <package name="CRM Application">
       <metrics statements="20" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
       <file name="server.js" path="/Users/riyabansal/Desktop/CRM Application/server.js">
@@ -185,16 +185,16 @@
         <line num="89" count="2" type="stmt"/>
         <line num="91" count="1" type="stmt"/>
         <line num="97" count="2" type="stmt"/>
-        <line num="99" count="2" type="stmt"/>
-        <line num="101" count="2" type="stmt"/>
-        <line num="103" count="2" type="stmt"/>
-        <line num="111" count="1" type="stmt"/>
+        <line num="99" count="3" type="stmt"/>
+        <line num="101" count="3" type="stmt"/>
+        <line num="103" count="3" type="stmt"/>
+        <line num="111" count="2" type="stmt"/>
         <line num="117" count="1" type="stmt"/>
         <line num="118" count="1" type="stmt"/>
       </file>
     </package>
     <package name="CRM Application.middlewares">
-      <metrics statements="79" coveredstatements="32" conditionals="36" coveredconditionals="5" methods="7" coveredmethods="3"/>
+      <metrics statements="79" coveredstatements="39" conditionals="36" coveredconditionals="9" methods="7" coveredmethods="4"/>
       <file name="authJwt.js" path="/Users/riyabansal/Desktop/CRM Application/middlewares/authJwt.js">
         <metrics statements="21" coveredstatements="17" conditionals="8" coveredconditionals="5" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
@@ -202,18 +202,18 @@
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="10" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="11" count="0" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="18" count="0" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="33" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="34" count="2" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="33" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="34" count="3" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
@@ -247,7 +247,7 @@
         <line num="41" count="1" type="stmt"/>
       </file>
       <file name="verifyUserReqBody.js" path="/Users/riyabansal/Desktop/CRM Application/middlewares/verifyUserReqBody.js">
-        <metrics statements="37" coveredstatements="6" conditionals="20" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="37" coveredstatements="13" conditionals="20" coveredconditionals="4" methods="2" coveredmethods="1"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
@@ -272,17 +272,17 @@
         <line num="50" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
         <line num="56" count="1" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="61" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="61" count="1" type="cond" truecount="2" falsecount="2"/>
         <line num="62" count="0" type="stmt"/>
         <line num="65" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="72" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="72" count="1" type="cond" truecount="2" falsecount="2"/>
         <line num="73" count="0" type="stmt"/>
         <line num="76" count="0" type="stmt"/>
-        <line num="78" count="0" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
         <line num="81" count="1" type="stmt"/>
         <line num="85" count="1" type="stmt"/>
       </file>

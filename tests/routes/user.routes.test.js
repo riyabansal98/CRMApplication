@@ -77,5 +77,20 @@ describe('Find All Endpoints', () => {
 })
 
 describe('PUT Update Endpoints', () => {
-    
+
+    var token = jwt.sign({ id: 1 }, config.secret, {
+        expiresIn: 120 // 2 minutes
+      });
+    it('should Update', async () => {
+        const res = await request(app)
+            .put(api_endpoint + 'users/1')
+            .set("x-access-token", token)
+            .field("userType","ADMIN")
+            .field("userId",1)
+        console.log(res.error)
+        expect(res.statusCode).toEqual(200);
+        expect(res.body).toEqual({
+            "message": "User record has been updated successfully"
+        });
+    })
 })
